@@ -9,6 +9,29 @@ git clone <repository-url>
 cd "UIDAI Hackathon"
 ```
 
+### Important: For Team Members
+
+This project uses **Git LFS (Large File Storage)** to manage large files like `feature_matrix.parquet`.
+
+**First-time setup:**
+```bash
+# Install Git LFS (Ubuntu/Debian)
+sudo apt install git-lfs
+
+# Or on Mac
+brew install git-lfs
+
+# Or on Windows, download from: https://git-lfs.github.com
+```
+
+**After cloning the repository:**
+```bash
+cd "UIDAI Hackathon"
+git lfs pull  # Download the large files
+```
+
+Without Git LFS, you'll only get placeholder files instead of the actual data.
+
 
 ## Dataset
 
@@ -95,6 +118,16 @@ source .venv/bin/activate  # On Linux/Mac
 ## Outputs
 
 Processed data and results are saved in the `outputs/results/` directory:
-- Cleaned datasets (biometric, demographic, enrolment)
-- Feature matrices
-- Data summaries and comparison reports
+- **Cleaned datasets**: `cleaned_biometric.csv`, `cleaned_demographic.csv`, `cleaned_enrolment.csv`
+- **Feature matrix**: 
+  - `feature_matrix.csv` (standard CSV format)
+  - `feature_matrix.parquet` (optimized format, **tracked with Git LFS** for team collaboration)
+- **Reports**: 
+  - `data_summary.csv` - Statistical summaries
+  - `cleaning_comparison.csv` - Before/after cleaning metrics
+  - `optimization_report.txt` - Memory optimization details
+  - `feature_matrix_sample.csv` - Sample of engineered features
+
+**Note**: 
+- The `feature_matrix.parquet` file (136 MB) is tracked using **Git LFS** so all team members can access it
+- Other large files (`.csv.gz`) are excluded from version control
