@@ -1,4 +1,6 @@
 .venv
 
-# Output files - large CSV files
+# Output files - large CSV files and compressed files
 outputs/results/*.csv
+outputs/results/*.csv.gz
+outputs/results/*.parquet

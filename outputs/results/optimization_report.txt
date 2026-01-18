@@ -1,0 +1,101 @@
+================================================================================
+FEATURE MATRIX OPTIMIZATION REPORT
+================================================================================
+Generated on: 2026-01-18 18:08:10
+
+--------------------------------------------------------------------------------
+ORIGINAL FILE
+--------------------------------------------------------------------------------
+File: ../outputs/results/feature_matrix.csv
+Size: 2.44 GB
+Rows: 2,294,731
+Columns: 135
+Memory usage (unoptimized): 2.95 GB
+Load time: 35.95 seconds
+
+--------------------------------------------------------------------------------
+OPTIMIZATION RESULTS
+--------------------------------------------------------------------------------
+Memory after optimization: 1.07 GB
+Memory saved: 1.88 GB
+Memory reduction: 63.7%
+
+--------------------------------------------------------------------------------
+PARQUET FORMAT (PRIMARY - RECOMMENDED)
+--------------------------------------------------------------------------------
+File: ../outputs/results/feature_matrix.parquet
+Size: 135.69 MB
+Compression: snappy
+Compression ratio: 18.42x
+Space saved: 2.31 GB (94.6%)
+Save time: 5.68 seconds
+Load time: 0.93 seconds
+Load speed vs original: 38.54x faster
+Memory usage: 1.82 GB
+
+--------------------------------------------------------------------------------
+COMPRESSED CSV FORMAT (BACKUP)
+--------------------------------------------------------------------------------
+File: ../outputs/results/feature_matrix.csv.gz
+Size: 211.28 MB
+Compression: gzip
+Compression ratio: 11.83x
+Space saved: 2.23 GB (91.5%)
+Save time: 440.07 seconds
+Load time: 111.14 seconds
+Load speed vs original: 0.32x faster
+Memory usage: 2.95 GB
+
+--------------------------------------------------------------------------------
+SAMPLE CSV FORMAT (QUICK INSPECTION)
+--------------------------------------------------------------------------------
+File: ../outputs/results/feature_matrix_sample.csv
+Size: 7.69 MB
+Rows: 10,000 (random sample)
+Purpose: Quick inspection in Excel or text editors
+
+--------------------------------------------------------------------------------
+COMPARISON SUMMARY
+--------------------------------------------------------------------------------
+Format               File Size       Load Time    Compression 
+--------------------------------------------------------------------------------
+Original CSV         2.44 GB         35.95s         1.00x       
+Parquet (snappy)     135.69 MB       0.93s         18.42x        
+CSV.gz               211.28 MB       111.14s         11.83x        
+Sample CSV           7.69 MB         1.39s         N/A         
+
+--------------------------------------------------------------------------------
+TOTAL DISK SPACE IMPACT
+--------------------------------------------------------------------------------
+Original file: 2.44 GB
+New files total: 354.65 MB
+  - Parquet: 135.69 MB
+  - CSV.gz: 211.28 MB
+  - Sample: 7.69 MB
+
+Potential savings (after deleting original): 2.09 GB
+Savings percentage: 85.8%
+
+--------------------------------------------------------------------------------
+RECOMMENDATIONS
+--------------------------------------------------------------------------------
+1. PRIMARY FORMAT: Use feature_matrix.parquet for all analysis
+   - Fastest load times
+   - Best compression
+   - Preserves data types
+   - Load with: pd.read_parquet('feature_matrix.parquet')
+
+2. BACKUP FORMAT: Keep feature_matrix.csv.gz for archival
+   - Universal CSV format
+   - Good compression
+   - Load with: pd.read_csv('feature_matrix.csv.gz', compression='gzip')
+
+3. SAMPLE FORMAT: Use feature_matrix_sample.csv for quick checks
+   - Open in Excel or text editor
+   - Quick data inspection
+
+4. DELETE ORIGINAL: After verification, delete the 2GB original CSV
+   - All data preserved in optimized formats
+   - Free up 2.09 GB of disk space
+
+================================================================================
