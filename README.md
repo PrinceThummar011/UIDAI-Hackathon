@@ -38,8 +38,8 @@ The `notebooks/` directory contains Jupyter notebooks for analysis:
 | `01_data_exploration.ipynb` | Initial data exploration, statistics, and data quality assessment |
 | `02_data_cleaning.ipynb` | Data cleaning, handling missing values, and removing duplicates |
 | `03_feature_engineering.ipynb` | Creating new features and transforming existing ones |
-| `04_model_development.ipynb` | Building and training machine learning models |
-| `05_visualization.ipynb` | Creating charts, graphs, and visual insights |
+| `03b_optimize_feature_matrix.ipynb` | Memory optimization and efficient storage of feature matrix |
+| `04_model_development.ipynb` | Building and training machine learning models for fraud detection |
 
 ## Project Structure
 
@@ -53,20 +53,44 @@ UIDAI Hackathon/
 │   ├── 01_data_exploration.ipynb
 │   ├── 02_data_cleaning.ipynb
 │   ├── 03_feature_engineering.ipynb
-│   ├── 04_model_development.ipynb
-│   └── 05_visualization.ipynb
+│   ├── 03b_optimize_feature_matrix.ipynb
+│   └── 04_model_development.ipynb
 ├── outputs/                          # Processed data and results
 │   └── results/
+│       ├── cleaned_*.csv             # Cleaned datasets
+│       ├── feature_matrix.csv        # Engineered features
+│       └── optimization_report.txt   # Memory optimization details
 └── README.md
 ```
+
+## Setup
+
+1. Create and activate virtual environment:
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Linux/Mac
+# or
+.venv\Scripts\activate  # On Windows
+```
+
+2. Install required packages:
+``**Cleaned datasets**: `cleaned_biometric.csv`, `cleaned_demographic.csv`, `cleaned_enrolment.csv`
+- **Feature matrix**: `feature_matrix.csv` (engineered features for modeling)
+- **Reports**: 
+  - `data_summary.csv` - Statistical summaries
+  - `cleaning_comparison.csv` - Before/after cleaning metrics
+  - `optimization_report.txt` - Memory optimization details
+  - `feature_matrix_sample.csv` - Sample of engineered features
+
+**Note**: Large output files (`.parquet`, `.csv.gz`) are excluded from version control to comply with GitHub's file size limits.
 
 ## Usage
 
 1. Start with `01_data_exploration.ipynb` to understand the data
 2. Run `02_data_cleaning.ipynb` to clean and prepare the data
 3. Use `03_feature_engineering.ipynb` to create new features
-4. Build models in `04_model_development.ipynb`
-5. Visualize results in `05_visualization.ipynb`
+4. Run `03b_optimize_feature_matrix.ipynb` to optimize memory usage
+5. Build and train models in `04_model_development.ipynb`
 
 ## Outputs
 
